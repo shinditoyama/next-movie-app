@@ -15,7 +15,7 @@ export default function Banner({ banner }: Props) {
   }, [banner]);
 
   return (
-    <div className="relative min-h-[calc(55vh)]">
+    <div className="relative opacity-80 min-h-[calc(55vh)]">
       <Image
         src={`${IMAGE_URL}${movie?.backdrop_path}`}
         layout="fill"

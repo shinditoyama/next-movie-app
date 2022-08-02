@@ -7,8 +7,12 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    colors: {},
-    extend: {},
+    extend: {
+      container: {
+        center: true,
+        padding: "1rem",
+      },
+    },
   },
   plugins: [require("flowbite/plugin"), require("tailwind-scrollbar-hide")],
 };
