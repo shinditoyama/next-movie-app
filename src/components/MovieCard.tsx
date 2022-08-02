@@ -14,6 +14,7 @@ export default function MovieCard({ result, type }: Props) {
       <div className="cursor-pointer transform hover:scale-105 transition duration-300">
         <Image
           src={`${IMAGE_URL}${result.poster_path}`}
+          alt={result?.title || result?.name}
           width={300}
           height={420}
           priority

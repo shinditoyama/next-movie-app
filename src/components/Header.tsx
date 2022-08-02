@@ -20,13 +20,16 @@ export default function Header() {
           Home
         </Navbar.Link>
         <Navbar.Link href="/movie" active={pathname === "/movie"}>
-          Filmes
+          Movie
         </Navbar.Link>
         <Navbar.Link href="/tv" active={pathname === "/tv"}>
-          Séries
+          Serie
         </Navbar.Link>
         <Navbar.Link href="/people" active={pathname === "/people"}>
-          Pessoas
+          Person
+        </Navbar.Link>
+        <Navbar.Link href="/search" active={pathname === "/search"}>
+          Search
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

@@ -1,4 +1,3 @@
-// import { GetServerSideProps } from "next";
 import { Pagination } from "flowbite-react";
 import useSWR from "swr";
 import { useRecoilState } from "recoil";
@@ -39,15 +38,3 @@ export default function People() {
     </Layout>
   );
 }
-
-/* export const getServerSideProps: GetServerSideProps = async () => {
-  const [person] = await Promise.all([
-    fetch(requests.fetchPopularPeople).then((response) => response.json()),
-  ]);
-
-  return {
-    props: {
-      person: person.results,
-    },
-  };
-}; */

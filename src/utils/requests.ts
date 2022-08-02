@@ -27,3 +27,6 @@ export const getPerson = (page: number) =>
 
 export const getPersonDetails = (id: number) =>
   `${BASE_URL}/person/${id}?api_key=${API_KEY}&language=pt-BR`;
+
+export const getSearch = (type: string, query: string) =>
+  `${BASE_URL}/search/${type}/?api_key=${API_KEY}&language=pt-BR&query=${query}`;
