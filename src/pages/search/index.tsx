@@ -1,25 +1,25 @@
 import useSWR from "swr";
+import { useRouter } from "next/router";
 import { ListGroup, Spinner } from "flowbite-react";
-import { useRecoilValue, useRecoilState } from "recoil";
-import { nameState, typeState } from "../../atoms/searchAtom";
+import { useRecoilState } from "recoil";
+import { typeState } from "../../atoms/searchAtom";
 import Layout from "../../components/Layout";
 import MovieCard from "../../components/MovieCard";
 import PersonCard from "../../components/PersonCard";
-import SearchBar from "../../components/SearchBar";
 import { getSearch } from "../../utils/requests";
 import { IMovie, IPerson } from "../../types/Typings";
 
 export default function Search() {
-  const search = useRecoilValue(nameState);
+  const router = useRouter();
+  const { q }: any = router.query;
+
   const [type, setType] = useRecoilState(typeState);
-  const { data } = useSWR(getSearch(type, search));
+  const { data } = useSWR(getSearch(type, q));
 
   return (
     <Layout title="Pesquisar">
       <section>
-        <div className="pb-4">
-          <SearchBar />
-        </div>
+        <div className="pb-4">{q && `Buscando por: ${q}`}</div>
         <div className="w-full rounded flex flex-col md:flex-row bg-white dark:bg-gray-800">
           <div className="md:w-1/3 lg:w-1/5 px-4 py-4">
             <ListGroup>
@@ -44,7 +44,7 @@ export default function Search() {
             </ListGroup>
           </div>
           <div className="md:w-2/3 lg:w-4/5 px-4 py-4">
-            {search ? (
+            {q ? (
               <>
                 <div
                   className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 ${
